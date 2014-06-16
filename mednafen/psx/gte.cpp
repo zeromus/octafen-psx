@@ -15,10 +15,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#ifndef PSXDEV_GTE_TESTING
 #include "psx.h"
 #include "gte.h"
-#endif
 
 #include "../clamp.h"
 
@@ -45,16 +43,16 @@ static uint32_t ReciprocalTable[0x8000] =
 
 */
 
-#ifndef PSXDEV_GTE_TESTING
 namespace MDFN_IEN_PSX
 {
-#endif
 
-typedef struct
+#include "rc/PACKED.h"
+typedef struct gtematrix
 {
    int16_t MX[3][3];
    int16_t dummy;
-}  __attribute__((__packed__)) gtematrix;
+} ;
+#include "rc/PACKED_END.h"
 
 typedef struct
 {
