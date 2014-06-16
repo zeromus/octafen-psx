@@ -546,7 +546,7 @@ void PS_CDC::GetCDAudio(int32 samples[2])
  ApplyVolume(samples);
 }
 
-
+#include "rc/PACKED.h"
 struct XA_Subheader
 {
  uint8 file;
@@ -558,13 +558,16 @@ struct XA_Subheader
  uint8 channel_dup;
  uint8 submode_dup;
  uint8 coding_dup;
-} __attribute__((__packed__));
+};
+#include "rc/PACKED_END.h"
 
+#include "rc/PACKED.h"
 struct XA_SoundGroup
 {
  uint8 params[16];
  uint8 samples[112];
-} __attribute__((__packed__));
+};
+#include "rc/PACKED_END.h"
 
 #define XA_SUBMODE_EOF		0x80
 #define XA_SUBMODE_REALTIME	0x40
